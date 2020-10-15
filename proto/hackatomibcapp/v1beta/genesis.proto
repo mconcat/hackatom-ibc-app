@@ -1,0 +1,9 @@
+syntax = "proto3";
+package hackatomibcapp.hackatomibcapp.v1beta1;
+
+option go_package = "github.com/mconcat/hackatom-ibc-app/x/hackatomibcapp/types";
+
+// GenesisState defines the capability module's genesis state.
+message GenesisState {
+}
+

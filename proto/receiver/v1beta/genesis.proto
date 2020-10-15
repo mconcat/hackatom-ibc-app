@@ -1,0 +1,9 @@
+syntax = "proto3";
+package hackatomibcapp.receiver.v1beta1;
+
+option go_package = "github.com/mconcat/hackatom-ibc-app/x/receiver/types";
+
+// GenesisState defines the receiver module's genesis state.
+message GenesisState {
+}
+
