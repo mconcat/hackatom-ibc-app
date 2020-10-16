@@ -7,6 +7,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	capabilitykeeper "github.com/cosmos/cosmos-sdk/x/capability/keeper"
 
 	"github.com/mconcat/hackatom-ibc-app/x/sender/types"
 )
@@ -18,14 +19,25 @@ type (
 		memKey   sdk.StoreKey
 
 		valset types.ValidatorSet
+
+		channelKeeper types.ChannelKeeper
+		portKeeper    types.PortKeeper
+		scopedKeeper  capabilitykeeper.ScopedKeeper
 	}
 )
 
-func NewKeeper(cdc codec.Marshaler, storeKey, memKey sdk.StoreKey) *Keeper {
+func NewKeeper(cdc codec.Marshaler, storeKey, memKey sdk.StoreKey, valset types.ValidatorSet,
+	channelKeeper types.ChannelKeeper, portKeeper types.PortKeeper, scopedKeeper capabilitykeeper.ScopedKeeper) *Keeper {
 	return &Keeper{
 		cdc:      cdc,
 		storeKey: storeKey,
 		memKey:   memKey,
+
+		valset: valset,
+
+		channelKeeper: channelKeeper,
+		portKeeper:    portKeeper,
+		scopedKeeper:  scopedKeeper,
 	}
 }
 
