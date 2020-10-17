@@ -10,3 +10,6 @@ message ValidatorUpdates {
   repeated tendermint.abci.ValidatorUpdate validator_updates = 2;  
 }
 
+message Sync {
+  string channel_id = 1;
+}
