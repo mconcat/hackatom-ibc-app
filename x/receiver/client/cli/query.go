@@ -58,13 +58,11 @@ $ %s query staking validator %s1gghjut3ccd8ay0zduzj64hwre2fxs9ldmqhffj
 
 			queryClient := types.NewQueryClient(clientCtx)
 
-			addr, err := sdk.ValAddressFromBech32(args[0])
-			if err != nil {
-				return err
+			req := &types.QueryValidatorRequest{
+				ValidatorAddr: args[0],
 			}
 
-			params := &types.QueryValidatorRequest{ValidatorAddr: addr.String()}
-			res, err := queryClient.Validator(cmd.Context(), params)
+			res, err := queryClient.Validator(cmd.Context(), req)
 			if err != nil {
 				return err
 			}
@@ -100,22 +98,23 @@ $ %s query staking validators
 				return err
 			}
 
-			resKVs, _, err := clientCtx.QuerySubspace(types.ValidatorsKey, types.StoreKey)
+			queryClient := types.NewQueryClient(clientCtx)
+
+			req := &types.QueryValidatorsRequest{}
+
+			res, err := queryClient.Validators(cmd.Context(), req)
 			if err != nil {
 				return err
 			}
 
-			var validators types.Validators
-			for _, kv := range resKVs {
-				validator, err := types.UnmarshalValidator(types.ModuleCdc, kv.Value)
+			for _, val := range res.Validators {
+				err := clientCtx.PrintOutput(&val)
 				if err != nil {
 					return err
 				}
-
-				validators = append(validators, validator)
 			}
 
-			return clientCtx.PrintOutputLegacy(validators)
+			return nil
 		},
 	}
 

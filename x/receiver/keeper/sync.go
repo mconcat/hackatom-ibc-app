@@ -11,9 +11,13 @@ import (
 	"github.com/mconcat/hackatom-ibc-app/x/receiver/types"
 )
 
-func (k Keeper) GetValidatorUpdate(ctx sdk.Context, address []byte) abci.ValidatorUpdate {
+func (k Keeper) GetValidatorUpdate(ctx sdk.Context, address []byte) (res abci.ValidatorUpdate, ok bool) {
 	store := ctx.KVStore(k.storeKey)
-	return k.MustUnmarshalValidatorUpdate(store.Get(types.NewValidatorUpdateKey(address)))
+	bz := store.Get(types.NewValidatorUpdateKey(address))
+	if bz == nil {
+		return
+	}
+	return k.MustUnmarshalValidatorUpdate(bz), true
 }
 
 func (k Keeper) HasValidatorUpdate(ctx sdk.Context, address []byte) bool {

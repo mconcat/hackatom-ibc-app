@@ -19,3 +19,12 @@ func (k Keeper) GetSyncs(ctx sdk.Context) (syncs []types.Sync) {
 
 	return
 }
+
+func (k Keeper) RegisterSync(ctx sdk.Context, sync types.Sync) error {
+	store := ctx.KVStore(k.storeKey)
+	if store.Has(types.NewSyncKey(sync.ChannelId)) {
+		return types.ErrSyncAlreadyExists
+	}
+	store.Set(types.NewSyncKey(sync.ChannelId), k.MustMarshalSync(sync))
+	return nil
+}

@@ -6,6 +6,6 @@ import (
 	abci "github.com/tendermint/tendermint/abci/types"
 )
 
-func EndBlocker(ctx sdk.Conte:xt, k keeper.Keeper) []abci.ValidatorUpdate {
-	return k.GetValidators(ctx)
+func EndBlocker(ctx sdk.Context, k keeper.Keeper) []abci.ValidatorUpdate {
+	return k.GetValidatorUpdates(ctx)
 }
