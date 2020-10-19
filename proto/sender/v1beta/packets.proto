@@ -5,8 +5,8 @@ import "tendermint/abci/types.proto";
 
 option go_package = "github.com/mconcat/hackatom-ibc-app/x/sender/types";
 
-message ValidatorUpdates {
-  bytes validators_hash = 1;
+message ValidatorUpdatesPacketData {
+  bytes validators_commit = 1;
   repeated tendermint.abci.ValidatorUpdate validator_updates = 2;  
 }
 

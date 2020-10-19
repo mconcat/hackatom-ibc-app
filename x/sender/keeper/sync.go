@@ -13,7 +13,7 @@ func (k Keeper) GetSyncs(ctx sdk.Context) (syncs []types.Sync) {
 	defer iter.Close()
 
 	for ; iter.Valid(); iter.Next() {
-		sync := types.MustUnmarshalSync(k.cdc, iter.Value())
+		sync := k.MustUnmarshalSync(iter.Value())
 		syncs = append(syncs, sync)
 	}
 

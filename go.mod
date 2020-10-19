@@ -3,6 +3,7 @@ module github.com/mconcat/hackatom-ibc-app
 go 1.14
 
 require (
+	github.com/armon/go-metrics v0.3.4
 	github.com/cosmos/cosmos-sdk v0.40.0-rc0
 	github.com/gogo/protobuf v1.3.1
 	github.com/gorilla/mux v1.8.0

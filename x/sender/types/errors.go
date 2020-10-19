@@ -8,5 +8,5 @@ import (
 
 // x/sender module sentinel errors
 var (
-	ErrSample = sdkerrors.Register(ModuleName, 1100, "sample error")
+	ErrInvalidUpdates = sdkerrors.Register(ModuleName, 1100, "invalid validator updates")
 )
