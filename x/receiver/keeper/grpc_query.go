@@ -13,7 +13,7 @@ import (
 
 var _ types.QueryServer = Keeper{}
 
-func (q Keeper) Validator(c context.Context, req *types.QueryValidatorRequest) (*types.QueryValidatorResponse, error) {
+func (q Keeper) SyncValidator(c context.Context, req *types.QuerySyncValidatorRequest) (*types.QuerySyncValidatorResponse, error) {
 	if req == nil {
 		return nil, status.Error(codes.InvalidArgument, "Empty request")
 	}
@@ -32,12 +32,12 @@ func (q Keeper) Validator(c context.Context, req *types.QueryValidatorRequest) (
 		)
 	}
 
-	return &types.QueryValidatorResponse{
+	return &types.QuerySyncValidatorResponse{
 		Validator: types.ToABCIValidator(val),
 	}, nil
 }
 
-func (q Keeper) Validators(c context.Context, req *types.QueryValidatorsRequest) (*types.QueryValidatorsResponse, error) {
+func (q Keeper) SyncValidators(c context.Context, req *types.QuerySyncValidatorsRequest) (*types.QuerySyncValidatorsResponse, error) {
 	if req == nil {
 		return nil, status.Error(codes.InvalidArgument, "Empty request")
 	}
@@ -50,7 +50,7 @@ func (q Keeper) Validators(c context.Context, req *types.QueryValidatorsRequest)
 		vals = append(vals, types.ToABCIValidator(update))
 	}
 
-	return &types.QueryValidatorsResponse{
+	return &types.QuerySyncValidatorsResponse{
 		Validators: vals,
 	}, nil
 }

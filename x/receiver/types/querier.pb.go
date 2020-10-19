@@ -31,24 +31,24 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
-// QueryValidatorsRequest is request type for Query/Validators RPC method.
-type QueryValidatorsRequest struct {
+// QuerySyncValidatorsRequest is request type for Query/SyncValidators RPC method.
+type QuerySyncValidatorsRequest struct {
 	// pagination defines an optional pagination for the request.
 	Pagination *query.PageRequest `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
 }
 
-func (m *QueryValidatorsRequest) Reset()         { *m = QueryValidatorsRequest{} }
-func (m *QueryValidatorsRequest) String() string { return proto.CompactTextString(m) }
-func (*QueryValidatorsRequest) ProtoMessage()    {}
-func (*QueryValidatorsRequest) Descriptor() ([]byte, []int) {
+func (m *QuerySyncValidatorsRequest) Reset()         { *m = QuerySyncValidatorsRequest{} }
+func (m *QuerySyncValidatorsRequest) String() string { return proto.CompactTextString(m) }
+func (*QuerySyncValidatorsRequest) ProtoMessage()    {}
+func (*QuerySyncValidatorsRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_83430a08489a14c4, []int{0}
 }
-func (m *QueryValidatorsRequest) XXX_Unmarshal(b []byte) error {
+func (m *QuerySyncValidatorsRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *QueryValidatorsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *QuerySyncValidatorsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_QueryValidatorsRequest.Marshal(b, m, deterministic)
+		return xxx_messageInfo_QuerySyncValidatorsRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -58,45 +58,45 @@ func (m *QueryValidatorsRequest) XXX_Marshal(b []byte, deterministic bool) ([]by
 		return b[:n], nil
 	}
 }
-func (m *QueryValidatorsRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_QueryValidatorsRequest.Merge(m, src)
+func (m *QuerySyncValidatorsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QuerySyncValidatorsRequest.Merge(m, src)
 }
-func (m *QueryValidatorsRequest) XXX_Size() int {
+func (m *QuerySyncValidatorsRequest) XXX_Size() int {
 	return m.Size()
 }
-func (m *QueryValidatorsRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_QueryValidatorsRequest.DiscardUnknown(m)
+func (m *QuerySyncValidatorsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QuerySyncValidatorsRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_QueryValidatorsRequest proto.InternalMessageInfo
+var xxx_messageInfo_QuerySyncValidatorsRequest proto.InternalMessageInfo
 
-func (m *QueryValidatorsRequest) GetPagination() *query.PageRequest {
+func (m *QuerySyncValidatorsRequest) GetPagination() *query.PageRequest {
 	if m != nil {
 		return m.Pagination
 	}
 	return nil
 }
 
-// QueryValidatorsResponse is response type for the Query/Validators RPC method
-type QueryValidatorsResponse struct {
+// QuerySyncValidatorsResponse is response type for the Query/SyncValidators RPC method
+type QuerySyncValidatorsResponse struct {
 	// validators contains all the queried validators.
 	Validators []types.Validator `protobuf:"bytes,1,rep,name=validators,proto3" json:"validators"`
 	// pagination defines the pagination in the response.
 	Pagination *query.PageResponse `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
 }
 
-func (m *QueryValidatorsResponse) Reset()         { *m = QueryValidatorsResponse{} }
-func (m *QueryValidatorsResponse) String() string { return proto.CompactTextString(m) }
-func (*QueryValidatorsResponse) ProtoMessage()    {}
-func (*QueryValidatorsResponse) Descriptor() ([]byte, []int) {
+func (m *QuerySyncValidatorsResponse) Reset()         { *m = QuerySyncValidatorsResponse{} }
+func (m *QuerySyncValidatorsResponse) String() string { return proto.CompactTextString(m) }
+func (*QuerySyncValidatorsResponse) ProtoMessage()    {}
+func (*QuerySyncValidatorsResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_83430a08489a14c4, []int{1}
 }
-func (m *QueryValidatorsResponse) XXX_Unmarshal(b []byte) error {
+func (m *QuerySyncValidatorsResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *QueryValidatorsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *QuerySyncValidatorsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_QueryValidatorsResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_QuerySyncValidatorsResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -106,50 +106,50 @@ func (m *QueryValidatorsResponse) XXX_Marshal(b []byte, deterministic bool) ([]b
 		return b[:n], nil
 	}
 }
-func (m *QueryValidatorsResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_QueryValidatorsResponse.Merge(m, src)
+func (m *QuerySyncValidatorsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QuerySyncValidatorsResponse.Merge(m, src)
 }
-func (m *QueryValidatorsResponse) XXX_Size() int {
+func (m *QuerySyncValidatorsResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *QueryValidatorsResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_QueryValidatorsResponse.DiscardUnknown(m)
+func (m *QuerySyncValidatorsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QuerySyncValidatorsResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_QueryValidatorsResponse proto.InternalMessageInfo
+var xxx_messageInfo_QuerySyncValidatorsResponse proto.InternalMessageInfo
 
-func (m *QueryValidatorsResponse) GetValidators() []types.Validator {
+func (m *QuerySyncValidatorsResponse) GetValidators() []types.Validator {
 	if m != nil {
 		return m.Validators
 	}
 	return nil
 }
 
-func (m *QueryValidatorsResponse) GetPagination() *query.PageResponse {
+func (m *QuerySyncValidatorsResponse) GetPagination() *query.PageResponse {
 	if m != nil {
 		return m.Pagination
 	}
 	return nil
 }
 
-// QueryValidatorRequest is response type for the Query/Validator RPC method
-type QueryValidatorRequest struct {
+// QuerySyncValidatorRequest is response type for the Query/SyncValidator RPC method
+type QuerySyncValidatorRequest struct {
 	// validator_addr defines the validator address to query for.
 	ValidatorAddr string `protobuf:"bytes,1,opt,name=validator_addr,json=validatorAddr,proto3" json:"validator_addr,omitempty"`
 }
 
-func (m *QueryValidatorRequest) Reset()         { *m = QueryValidatorRequest{} }
-func (m *QueryValidatorRequest) String() string { return proto.CompactTextString(m) }
-func (*QueryValidatorRequest) ProtoMessage()    {}
-func (*QueryValidatorRequest) Descriptor() ([]byte, []int) {
+func (m *QuerySyncValidatorRequest) Reset()         { *m = QuerySyncValidatorRequest{} }
+func (m *QuerySyncValidatorRequest) String() string { return proto.CompactTextString(m) }
+func (*QuerySyncValidatorRequest) ProtoMessage()    {}
+func (*QuerySyncValidatorRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_83430a08489a14c4, []int{2}
 }
-func (m *QueryValidatorRequest) XXX_Unmarshal(b []byte) error {
+func (m *QuerySyncValidatorRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *QueryValidatorRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *QuerySyncValidatorRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_QueryValidatorRequest.Marshal(b, m, deterministic)
+		return xxx_messageInfo_QuerySyncValidatorRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -159,43 +159,43 @@ func (m *QueryValidatorRequest) XXX_Marshal(b []byte, deterministic bool) ([]byt
 		return b[:n], nil
 	}
 }
-func (m *QueryValidatorRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_QueryValidatorRequest.Merge(m, src)
+func (m *QuerySyncValidatorRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QuerySyncValidatorRequest.Merge(m, src)
 }
-func (m *QueryValidatorRequest) XXX_Size() int {
+func (m *QuerySyncValidatorRequest) XXX_Size() int {
 	return m.Size()
 }
-func (m *QueryValidatorRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_QueryValidatorRequest.DiscardUnknown(m)
+func (m *QuerySyncValidatorRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QuerySyncValidatorRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_QueryValidatorRequest proto.InternalMessageInfo
+var xxx_messageInfo_QuerySyncValidatorRequest proto.InternalMessageInfo
 
-func (m *QueryValidatorRequest) GetValidatorAddr() string {
+func (m *QuerySyncValidatorRequest) GetValidatorAddr() string {
 	if m != nil {
 		return m.ValidatorAddr
 	}
 	return ""
 }
 
-// QueryValidatorResponse is response type for the Query/Validator RPC method
-type QueryValidatorResponse struct {
+// QuerySyncValidatorResponse is response type for the Query/SyncValidator RPC method
+type QuerySyncValidatorResponse struct {
 	// validator defines the the validator info.
 	Validator types.Validator `protobuf:"bytes,1,opt,name=validator,proto3" json:"validator"`
 }
 
-func (m *QueryValidatorResponse) Reset()         { *m = QueryValidatorResponse{} }
-func (m *QueryValidatorResponse) String() string { return proto.CompactTextString(m) }
-func (*QueryValidatorResponse) ProtoMessage()    {}
-func (*QueryValidatorResponse) Descriptor() ([]byte, []int) {
+func (m *QuerySyncValidatorResponse) Reset()         { *m = QuerySyncValidatorResponse{} }
+func (m *QuerySyncValidatorResponse) String() string { return proto.CompactTextString(m) }
+func (*QuerySyncValidatorResponse) ProtoMessage()    {}
+func (*QuerySyncValidatorResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_83430a08489a14c4, []int{3}
 }
-func (m *QueryValidatorResponse) XXX_Unmarshal(b []byte) error {
+func (m *QuerySyncValidatorResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *QueryValidatorResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *QuerySyncValidatorResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_QueryValidatorResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_QuerySyncValidatorResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -205,19 +205,19 @@ func (m *QueryValidatorResponse) XXX_Marshal(b []byte, deterministic bool) ([]by
 		return b[:n], nil
 	}
 }
-func (m *QueryValidatorResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_QueryValidatorResponse.Merge(m, src)
+func (m *QuerySyncValidatorResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QuerySyncValidatorResponse.Merge(m, src)
 }
-func (m *QueryValidatorResponse) XXX_Size() int {
+func (m *QuerySyncValidatorResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *QueryValidatorResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_QueryValidatorResponse.DiscardUnknown(m)
+func (m *QuerySyncValidatorResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QuerySyncValidatorResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_QueryValidatorResponse proto.InternalMessageInfo
+var xxx_messageInfo_QuerySyncValidatorResponse proto.InternalMessageInfo
 
-func (m *QueryValidatorResponse) GetValidator() types.Validator {
+func (m *QuerySyncValidatorResponse) GetValidator() types.Validator {
 	if m != nil {
 		return m.Validator
 	}
@@ -225,46 +225,47 @@ func (m *QueryValidatorResponse) GetValidator() types.Validator {
 }
 
 func init() {
-	proto.RegisterType((*QueryValidatorsRequest)(nil), "cosmos.staking.v1beta1.QueryValidatorsRequest")
-	proto.RegisterType((*QueryValidatorsResponse)(nil), "cosmos.staking.v1beta1.QueryValidatorsResponse")
-	proto.RegisterType((*QueryValidatorRequest)(nil), "cosmos.staking.v1beta1.QueryValidatorRequest")
-	proto.RegisterType((*QueryValidatorResponse)(nil), "cosmos.staking.v1beta1.QueryValidatorResponse")
+	proto.RegisterType((*QuerySyncValidatorsRequest)(nil), "cosmos.staking.v1beta1.QuerySyncValidatorsRequest")
+	proto.RegisterType((*QuerySyncValidatorsResponse)(nil), "cosmos.staking.v1beta1.QuerySyncValidatorsResponse")
+	proto.RegisterType((*QuerySyncValidatorRequest)(nil), "cosmos.staking.v1beta1.QuerySyncValidatorRequest")
+	proto.RegisterType((*QuerySyncValidatorResponse)(nil), "cosmos.staking.v1beta1.QuerySyncValidatorResponse")
 }
 
 func init() { proto.RegisterFile("receiver/v1beta/querier.proto", fileDescriptor_83430a08489a14c4) }
 
 var fileDescriptor_83430a08489a14c4 = []byte{
-	// 475 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x93, 0xcf, 0x8a, 0x13, 0x41,
-	0x10, 0xc6, 0xd3, 0xf1, 0x0f, 0xa4, 0x17, 0x3d, 0x34, 0xba, 0x86, 0xa8, 0x63, 0x08, 0xa8, 0x41,
-	0x48, 0x17, 0x89, 0x7a, 0x0d, 0xeb, 0x1e, 0xd6, 0x9b, 0x68, 0x0e, 0x22, 0x5e, 0xb4, 0x66, 0xa6,
-	0x99, 0x6d, 0x76, 0xa7, 0x7b, 0xb6, 0xbb, 0x13, 0x5c, 0xc4, 0x8b, 0x4f, 0x20, 0xf8, 0x0a, 0xfb,
-	0x04, 0x3e, 0xc5, 0x1e, 0x17, 0xbc, 0x78, 0x12, 0x49, 0x7c, 0x10, 0x49, 0xcf, 0x64, 0x26, 0xd9,
-	0x0d, 0x98, 0xbd, 0x35, 0x4d, 0x7d, 0xdf, 0xf7, 0xab, 0xaa, 0x6e, 0x7a, 0xdf, 0x88, 0x48, 0xc8,
-	0x89, 0x30, 0x30, 0xe9, 0x87, 0xc2, 0x21, 0x1c, 0x8d, 0x85, 0x91, 0xc2, 0xf0, 0xcc, 0x68, 0xa7,
-	0xd9, 0x76, 0xa4, 0x6d, 0xaa, 0x2d, 0xb7, 0x0e, 0x0f, 0xa4, 0x4a, 0x78, 0x5e, 0xd4, 0x6f, 0xdd,
-	0x75, 0x42, 0xc5, 0xc2, 0xa4, 0x52, 0x39, 0xc0, 0x30, 0x92, 0xe0, 0x8e, 0x33, 0x61, 0x73, 0x51,
-	0xeb, 0x49, 0x2e, 0x82, 0x10, 0xad, 0xf0, 0x7e, 0xc7, 0x85, 0x79, 0x1f, 0x32, 0x4c, 0xa4, 0x42,
-	0x27, 0xb5, 0x2a, 0x6a, 0x6f, 0x25, 0x3a, 0xd1, 0xfe, 0x08, 0xf3, 0x53, 0x71, 0x7b, 0x2f, 0xd1,
-	0x3a, 0x39, 0x14, 0x80, 0x99, 0x04, 0x54, 0x4a, 0x3b, 0x2f, 0x29, 0xfc, 0x3b, 0x1f, 0xe9, 0xf6,
-	0x9b, 0xb9, 0xeb, 0x5b, 0x3c, 0x94, 0x31, 0x3a, 0x6d, 0xec, 0x48, 0x1c, 0x8d, 0x85, 0x75, 0x6c,
-	0x8f, 0xd2, 0x2a, 0xa1, 0x59, 0x6f, 0x93, 0xee, 0xd6, 0xe0, 0x11, 0x2f, 0x7a, 0x98, 0xe3, 0x70,
-	0x8f, 0xb3, 0x68, 0x83, 0xbf, 0xc6, 0x44, 0x14, 0xda, 0xd1, 0x92, 0xb2, 0x73, 0x42, 0xe8, 0x9d,
-	0x0b, 0x11, 0x36, 0xd3, 0xca, 0x0a, 0xb6, 0x43, 0xe9, 0xa4, 0xbc, 0x6d, 0x92, 0xf6, 0x95, 0xee,
-	0xd6, 0xa0, 0xc5, 0xab, 0x79, 0xf0, 0xf9, 0x3c, 0x78, 0x29, 0xdc, 0xbd, 0x7a, 0xfa, 0xfb, 0x41,
-	0x6d, 0xb4, 0xa4, 0x61, 0x2f, 0xd7, 0x50, 0x3e, 0xfe, 0x2f, 0x65, 0x1e, 0xbf, 0x82, 0x39, 0xa4,
-	0xb7, 0x57, 0x29, 0x17, 0x73, 0x78, 0x48, 0x6f, 0x96, 0x79, 0x1f, 0x30, 0x8e, 0x4d, 0x93, 0xb4,
-	0x49, 0xb7, 0x31, 0xba, 0x51, 0xde, 0xbe, 0x88, 0x63, 0xd3, 0x79, 0x77, 0x7e, 0x90, 0x65, 0x93,
-	0x43, 0xda, 0x28, 0x4b, 0xbd, 0x76, 0x93, 0x1e, 0x2b, 0xc9, 0x60, 0x56, 0xa7, 0xd7, 0xbc, 0x35,
-	0x3b, 0x21, 0x94, 0x56, 0x53, 0x64, 0x9c, 0xaf, 0x7f, 0x51, 0x7c, 0xfd, 0x46, 0x5b, 0xb0, 0x71,
-	0x7d, 0x4e, 0xde, 0x79, 0xfe, 0xf5, 0xe7, 0xdf, 0xef, 0x75, 0x60, 0x3d, 0xd8, 0xc7, 0xe8, 0x00,
-	0x9d, 0x4e, 0x7b, 0x32, 0x8c, 0x7a, 0x98, 0x65, 0x70, 0xee, 0xa9, 0xf7, 0x61, 0x69, 0x27, 0x3f,
-	0x08, 0x6d, 0x94, 0x6e, 0xac, 0xb7, 0x59, 0xea, 0x02, 0x92, 0x6f, 0x5a, 0x5e, 0x30, 0xee, 0x79,
-	0xc6, 0x1d, 0x36, 0xbc, 0x14, 0x23, 0x7c, 0x5e, 0xdd, 0xe9, 0x97, 0xdd, 0x57, 0xa7, 0xd3, 0x80,
-	0x9c, 0x4d, 0x03, 0xf2, 0x67, 0x1a, 0x90, 0x6f, 0xb3, 0xa0, 0x76, 0x36, 0x0b, 0x6a, 0xbf, 0x66,
-	0x41, 0xed, 0xfd, 0xb3, 0x44, 0xba, 0xfd, 0x71, 0xc8, 0x23, 0x9d, 0x42, 0x1a, 0x69, 0x15, 0xa1,
-	0xbb, 0x98, 0xf5, 0xa9, 0x4a, 0xf3, 0xdf, 0x37, 0xbc, 0xee, 0xff, 0xd7, 0xd3, 0x7f, 0x01, 0x00,
-	0x00, 0xff, 0xff, 0x0f, 0x24, 0xf1, 0xe3, 0x15, 0x04, 0x00, 0x00,
+	// 482 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x93, 0x4f, 0x6b, 0x13, 0x41,
+	0x18, 0xc6, 0x33, 0xf1, 0x0f, 0x74, 0x4a, 0x7b, 0x18, 0x44, 0xe2, 0x56, 0xd7, 0x10, 0x50, 0x83,
+	0x90, 0x19, 0x76, 0xab, 0xd7, 0x52, 0x73, 0xa8, 0x37, 0xd1, 0x08, 0x1e, 0x44, 0x90, 0xd9, 0xd9,
+	0x61, 0x3a, 0xb4, 0x3b, 0xb3, 0x9d, 0x99, 0x04, 0x83, 0x78, 0xf1, 0x13, 0x08, 0x7e, 0x09, 0x8f,
+	0x7e, 0x02, 0xcf, 0x3d, 0x16, 0xbc, 0x78, 0x12, 0x49, 0xfc, 0x16, 0x5e, 0x24, 0xb3, 0x9b, 0x4d,
+	0x62, 0x57, 0xda, 0xdc, 0x96, 0xe1, 0xfd, 0x3d, 0xcf, 0xf3, 0xbe, 0xef, 0xbe, 0xf0, 0x8e, 0xe1,
+	0x8c, 0xcb, 0x11, 0x37, 0x64, 0x14, 0x25, 0xdc, 0x51, 0x72, 0x32, 0xe4, 0x46, 0x72, 0x83, 0x73,
+	0xa3, 0x9d, 0x46, 0x37, 0x99, 0xb6, 0x99, 0xb6, 0xd8, 0x3a, 0x7a, 0x24, 0x95, 0xc0, 0x45, 0x51,
+	0x14, 0xec, 0x38, 0xae, 0x52, 0x6e, 0x32, 0xa9, 0x1c, 0xa1, 0x09, 0x93, 0xc4, 0x8d, 0x73, 0x6e,
+	0x0b, 0x28, 0x78, 0x58, 0x40, 0x24, 0xa1, 0x96, 0x7b, 0xbd, 0x71, 0x29, 0x1e, 0x91, 0x9c, 0x0a,
+	0xa9, 0xa8, 0x93, 0x5a, 0x95, 0xb5, 0x37, 0x84, 0x16, 0xda, 0x7f, 0x92, 0xd9, 0x57, 0xf9, 0x7a,
+	0x5b, 0x68, 0x2d, 0x8e, 0x39, 0xa1, 0xb9, 0x24, 0x54, 0x29, 0xed, 0x3c, 0x52, 0xea, 0x77, 0x52,
+	0x18, 0xbc, 0x98, 0xa9, 0xbe, 0x1c, 0x2b, 0xf6, 0x8a, 0x1e, 0xcb, 0x94, 0x3a, 0x6d, 0xec, 0x80,
+	0x9f, 0x0c, 0xb9, 0x75, 0xe8, 0x00, 0xc2, 0x85, 0x4b, 0xab, 0xd9, 0x06, 0xdd, 0xcd, 0xf8, 0x3e,
+	0x2e, 0xfb, 0x98, 0x45, 0xc2, 0x3e, 0xd2, 0xbc, 0x15, 0xfc, 0x9c, 0x0a, 0x5e, 0xb2, 0x83, 0x25,
+	0xb2, 0xf3, 0x05, 0xc0, 0x9d, 0x5a, 0x1b, 0x9b, 0x6b, 0x65, 0x39, 0xda, 0x87, 0x70, 0x54, 0xbd,
+	0xb6, 0x40, 0xfb, 0x4a, 0x77, 0x33, 0x0e, 0xf0, 0x62, 0x2e, 0x78, 0x36, 0x17, 0x5c, 0x81, 0xfd,
+	0xab, 0xa7, 0x3f, 0xef, 0x36, 0x06, 0x4b, 0x0c, 0x7a, 0x5a, 0x93, 0xf4, 0xc1, 0x85, 0x49, 0x0b,
+	0xfb, 0x95, 0xa8, 0x7d, 0x78, 0xeb, 0x7c, 0xd2, 0xf9, 0x3c, 0xee, 0xc1, 0xed, 0xca, 0xf3, 0x2d,
+	0x4d, 0x53, 0xd3, 0x02, 0x6d, 0xd0, 0xdd, 0x18, 0x6c, 0x55, 0xaf, 0x4f, 0xd2, 0xd4, 0x74, 0xde,
+	0xd4, 0x0d, 0xb5, 0x6a, 0x76, 0x0f, 0x6e, 0x54, 0xe5, 0x9e, 0xbf, 0x4c, 0xaf, 0x0b, 0x24, 0xfe,
+	0xd3, 0x84, 0xd7, 0xbc, 0x3c, 0xfa, 0x0a, 0xe0, 0xf6, 0xea, 0x44, 0x51, 0x8c, 0xeb, 0xff, 0x32,
+	0xfc, 0xff, 0x2d, 0x07, 0xbb, 0x6b, 0x31, 0x45, 0x17, 0x9d, 0xc7, 0x1f, 0xbf, 0xff, 0xfe, 0xdc,
+	0x24, 0xa8, 0x47, 0x0e, 0x29, 0x3b, 0xa2, 0x4e, 0x67, 0x3d, 0x99, 0xb0, 0x1e, 0xcd, 0x73, 0xf2,
+	0xcf, 0x19, 0x44, 0x64, 0x69, 0x4f, 0xdf, 0x00, 0xdc, 0x5a, 0x51, 0x44, 0xd1, 0xe5, 0xdd, 0xe7,
+	0x81, 0xe3, 0x75, 0x90, 0x32, 0xef, 0x81, 0xcf, 0xbb, 0x8f, 0xf6, 0xd6, 0xca, 0x4b, 0xde, 0xaf,
+	0xee, 0xfb, 0x43, 0xff, 0xd9, 0xe9, 0x24, 0x04, 0x67, 0x93, 0x10, 0xfc, 0x9a, 0x84, 0xe0, 0xd3,
+	0x34, 0x6c, 0x9c, 0x4d, 0xc3, 0xc6, 0x8f, 0x69, 0xd8, 0x78, 0xfd, 0x48, 0x48, 0x77, 0x38, 0x4c,
+	0x30, 0xd3, 0x19, 0xc9, 0x98, 0x56, 0x8c, 0xba, 0xf3, 0x5e, 0xef, 0x16, 0x6e, 0xfe, 0xcc, 0x93,
+	0xeb, 0xfe, 0x0e, 0x77, 0xff, 0x06, 0x00, 0x00, 0xff, 0xff, 0x67, 0x37, 0xca, 0x71, 0x3d, 0x04,
+	0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -279,10 +280,10 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type QueryClient interface {
-	// Validators queries all validators that match the given status.
-	Validators(ctx context.Context, in *QueryValidatorsRequest, opts ...grpc.CallOption) (*QueryValidatorsResponse, error)
-	// Validator queries validator info for given validator address.
-	Validator(ctx context.Context, in *QueryValidatorRequest, opts ...grpc.CallOption) (*QueryValidatorResponse, error)
+	// SyncValidators queries all validators that match the given status.
+	SyncValidators(ctx context.Context, in *QuerySyncValidatorsRequest, opts ...grpc.CallOption) (*QuerySyncValidatorsResponse, error)
+	// SyncValidator queries validator info for given validator address.
+	SyncValidator(ctx context.Context, in *QuerySyncValidatorRequest, opts ...grpc.CallOption) (*QuerySyncValidatorResponse, error)
 }
 
 type queryClient struct {
@@ -293,18 +294,18 @@ func NewQueryClient(cc grpc1.ClientConn) QueryClient {
 	return &queryClient{cc}
 }
 
-func (c *queryClient) Validators(ctx context.Context, in *QueryValidatorsRequest, opts ...grpc.CallOption) (*QueryValidatorsResponse, error) {
-	out := new(QueryValidatorsResponse)
-	err := c.cc.Invoke(ctx, "/cosmos.staking.v1beta1.Query/Validators", in, out, opts...)
+func (c *queryClient) SyncValidators(ctx context.Context, in *QuerySyncValidatorsRequest, opts ...grpc.CallOption) (*QuerySyncValidatorsResponse, error) {
+	out := new(QuerySyncValidatorsResponse)
+	err := c.cc.Invoke(ctx, "/cosmos.staking.v1beta1.Query/SyncValidators", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *queryClient) Validator(ctx context.Context, in *QueryValidatorRequest, opts ...grpc.CallOption) (*QueryValidatorResponse, error) {
-	out := new(QueryValidatorResponse)
-	err := c.cc.Invoke(ctx, "/cosmos.staking.v1beta1.Query/Validator", in, out, opts...)
+func (c *queryClient) SyncValidator(ctx context.Context, in *QuerySyncValidatorRequest, opts ...grpc.CallOption) (*QuerySyncValidatorResponse, error) {
+	out := new(QuerySyncValidatorResponse)
+	err := c.cc.Invoke(ctx, "/cosmos.staking.v1beta1.Query/SyncValidator", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -313,59 +314,59 @@ func (c *queryClient) Validator(ctx context.Context, in *QueryValidatorRequest, 
 
 // QueryServer is the server API for Query service.
 type QueryServer interface {
-	// Validators queries all validators that match the given status.
-	Validators(context.Context, *QueryValidatorsRequest) (*QueryValidatorsResponse, error)
-	// Validator queries validator info for given validator address.
-	Validator(context.Context, *QueryValidatorRequest) (*QueryValidatorResponse, error)
+	// SyncValidators queries all validators that match the given status.
+	SyncValidators(context.Context, *QuerySyncValidatorsRequest) (*QuerySyncValidatorsResponse, error)
+	// SyncValidator queries validator info for given validator address.
+	SyncValidator(context.Context, *QuerySyncValidatorRequest) (*QuerySyncValidatorResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
 type UnimplementedQueryServer struct {
 }
 
-func (*UnimplementedQueryServer) Validators(ctx context.Context, req *QueryValidatorsRequest) (*QueryValidatorsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Validators not implemented")
+func (*UnimplementedQueryServer) SyncValidators(ctx context.Context, req *QuerySyncValidatorsRequest) (*QuerySyncValidatorsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SyncValidators not implemented")
 }
-func (*UnimplementedQueryServer) Validator(ctx context.Context, req *QueryValidatorRequest) (*QueryValidatorResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Validator not implemented")
+func (*UnimplementedQueryServer) SyncValidator(ctx context.Context, req *QuerySyncValidatorRequest) (*QuerySyncValidatorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SyncValidator not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
 	s.RegisterService(&_Query_serviceDesc, srv)
 }
 
-func _Query_Validators_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryValidatorsRequest)
+func _Query_SyncValidators_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuerySyncValidatorsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(QueryServer).Validators(ctx, in)
+		return srv.(QueryServer).SyncValidators(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/cosmos.staking.v1beta1.Query/Validators",
+		FullMethod: "/cosmos.staking.v1beta1.Query/SyncValidators",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueryServer).Validators(ctx, req.(*QueryValidatorsRequest))
+		return srv.(QueryServer).SyncValidators(ctx, req.(*QuerySyncValidatorsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Query_Validator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryValidatorRequest)
+func _Query_SyncValidator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuerySyncValidatorRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(QueryServer).Validator(ctx, in)
+		return srv.(QueryServer).SyncValidator(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/cosmos.staking.v1beta1.Query/Validator",
+		FullMethod: "/cosmos.staking.v1beta1.Query/SyncValidator",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueryServer).Validator(ctx, req.(*QueryValidatorRequest))
+		return srv.(QueryServer).SyncValidator(ctx, req.(*QuerySyncValidatorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -375,19 +376,19 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Validators",
-			Handler:    _Query_Validators_Handler,
+			MethodName: "SyncValidators",
+			Handler:    _Query_SyncValidators_Handler,
 		},
 		{
-			MethodName: "Validator",
-			Handler:    _Query_Validator_Handler,
+			MethodName: "SyncValidator",
+			Handler:    _Query_SyncValidator_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "receiver/v1beta/querier.proto",
 }
 
-func (m *QueryValidatorsRequest) Marshal() (dAtA []byte, err error) {
+func (m *QuerySyncValidatorsRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -397,12 +398,12 @@ func (m *QueryValidatorsRequest) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *QueryValidatorsRequest) MarshalTo(dAtA []byte) (int, error) {
+func (m *QuerySyncValidatorsRequest) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *QueryValidatorsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *QuerySyncValidatorsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -422,7 +423,7 @@ func (m *QueryValidatorsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	return len(dAtA) - i, nil
 }
 
-func (m *QueryValidatorsResponse) Marshal() (dAtA []byte, err error) {
+func (m *QuerySyncValidatorsResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -432,12 +433,12 @@ func (m *QueryValidatorsResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *QueryValidatorsResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *QuerySyncValidatorsResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *QueryValidatorsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *QuerySyncValidatorsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -471,7 +472,7 @@ func (m *QueryValidatorsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	return len(dAtA) - i, nil
 }
 
-func (m *QueryValidatorRequest) Marshal() (dAtA []byte, err error) {
+func (m *QuerySyncValidatorRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -481,12 +482,12 @@ func (m *QueryValidatorRequest) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *QueryValidatorRequest) MarshalTo(dAtA []byte) (int, error) {
+func (m *QuerySyncValidatorRequest) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *QueryValidatorRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *QuerySyncValidatorRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -501,7 +502,7 @@ func (m *QueryValidatorRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *QueryValidatorResponse) Marshal() (dAtA []byte, err error) {
+func (m *QuerySyncValidatorResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -511,12 +512,12 @@ func (m *QueryValidatorResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *QueryValidatorResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *QuerySyncValidatorResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *QueryValidatorResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *QuerySyncValidatorResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -545,7 +546,7 @@ func encodeVarintQuerier(dAtA []byte, offset int, v uint64) int {
 	dAtA[offset] = uint8(v)
 	return base
 }
-func (m *QueryValidatorsRequest) Size() (n int) {
+func (m *QuerySyncValidatorsRequest) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -558,7 +559,7 @@ func (m *QueryValidatorsRequest) Size() (n int) {
 	return n
 }
 
-func (m *QueryValidatorsResponse) Size() (n int) {
+func (m *QuerySyncValidatorsResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -577,7 +578,7 @@ func (m *QueryValidatorsResponse) Size() (n int) {
 	return n
 }
 
-func (m *QueryValidatorRequest) Size() (n int) {
+func (m *QuerySyncValidatorRequest) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -590,7 +591,7 @@ func (m *QueryValidatorRequest) Size() (n int) {
 	return n
 }
 
-func (m *QueryValidatorResponse) Size() (n int) {
+func (m *QuerySyncValidatorResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -607,7 +608,7 @@ func sovQuerier(x uint64) (n int) {
 func sozQuerier(x uint64) (n int) {
 	return sovQuerier(uint64((x << 1) ^ uint64((int64(x) >> 63))))
 }
-func (m *QueryValidatorsRequest) Unmarshal(dAtA []byte) error {
+func (m *QuerySyncValidatorsRequest) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -630,10 +631,10 @@ func (m *QueryValidatorsRequest) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: QueryValidatorsRequest: wiretype end group for non-group")
+			return fmt.Errorf("proto: QuerySyncValidatorsRequest: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: QueryValidatorsRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: QuerySyncValidatorsRequest: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 2:
@@ -696,7 +697,7 @@ func (m *QueryValidatorsRequest) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *QueryValidatorsResponse) Unmarshal(dAtA []byte) error {
+func (m *QuerySyncValidatorsResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -719,10 +720,10 @@ func (m *QueryValidatorsResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: QueryValidatorsResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: QuerySyncValidatorsResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: QueryValidatorsResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: QuerySyncValidatorsResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -819,7 +820,7 @@ func (m *QueryValidatorsResponse) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *QueryValidatorRequest) Unmarshal(dAtA []byte) error {
+func (m *QuerySyncValidatorRequest) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -842,10 +843,10 @@ func (m *QueryValidatorRequest) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: QueryValidatorRequest: wiretype end group for non-group")
+			return fmt.Errorf("proto: QuerySyncValidatorRequest: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: QueryValidatorRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: QuerySyncValidatorRequest: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -904,7 +905,7 @@ func (m *QueryValidatorRequest) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *QueryValidatorResponse) Unmarshal(dAtA []byte) error {
+func (m *QuerySyncValidatorResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -927,10 +928,10 @@ func (m *QueryValidatorResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: QueryValidatorResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: QuerySyncValidatorResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: QueryValidatorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: QuerySyncValidatorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:

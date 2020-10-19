@@ -58,11 +58,11 @@ $ %s query staking validator %s1gghjut3ccd8ay0zduzj64hwre2fxs9ldmqhffj
 
 			queryClient := types.NewQueryClient(clientCtx)
 
-			req := &types.QueryValidatorRequest{
+			req := &types.QuerySyncValidatorRequest{
 				ValidatorAddr: args[0],
 			}
 
-			res, err := queryClient.Validator(cmd.Context(), req)
+			res, err := queryClient.SyncValidator(cmd.Context(), req)
 			if err != nil {
 				return err
 			}
@@ -100,9 +100,9 @@ $ %s query staking validators
 
 			queryClient := types.NewQueryClient(clientCtx)
 
-			req := &types.QueryValidatorsRequest{}
+			req := &types.QuerySyncValidatorsRequest{}
 
-			res, err := queryClient.Validators(cmd.Context(), req)
+			res, err := queryClient.SyncValidators(cmd.Context(), req)
 			if err != nil {
 				return err
 			}
