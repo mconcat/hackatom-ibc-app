@@ -1,0 +1,11 @@
+syntax = 'proto3';
+package hackatomibcapp.receiver.v1beta1;
+
+import "tendermint/abci/types.proto";
+
+option go_package = "github.com/mconcat/hackatom-ibc-app/x/receiver/types";
+
+message ValidatorUpdates {
+  repeated tendermint.abci.ValidatorUpdate validator_updates = 1;
+}
+

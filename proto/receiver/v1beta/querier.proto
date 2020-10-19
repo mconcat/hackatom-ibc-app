@@ -1,0 +1,55 @@
+syntax = "proto3";
+package cosmos.staking.v1beta1;
+
+import "tendermint/abci/types.proto";
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+// import "cosmos/staking/v1beta1/staking.proto";
+
+option go_package = "github.com/mconcat/hackatom-ibc-app/x/receiver/types";
+
+// Query defines the gRPC querier service.
+service Query {
+  // SyncValidators queries all validators that match the given status.
+  rpc SyncValidators(QuerySyncValidatorsRequest) returns (QuerySyncValidatorsResponse) {
+    option (google.api.http).get = "/hackatom-ibc-app/receiver/v1beta1/validators";
+  }
+
+  // SyncValidator queries validator info for given validator address.
+  rpc SyncValidator(QuerySyncValidatorRequest) returns (QuerySyncValidatorResponse) {
+    option (google.api.http).get = "/hackatom-ibc-app/receiver/v1beta1/validators/{validator_addr}";
+  }
+}
+
+// QuerySyncValidatorsRequest is request type for Query/SyncValidators RPC method.
+message QuerySyncValidatorsRequest {
+  // status enables to query for validators matching a given status.
+  // string status = 1;
+
+  // pagination defines an optional pagination for the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 2;
+}
+
+// QuerySyncValidatorsResponse is response type for the Query/SyncValidators RPC method
+message QuerySyncValidatorsResponse {
+  // validators contains all the queried validators.
+  repeated tendermint.abci.Validator validators = 1 [(gogoproto.nullable) = false];
+
+  // pagination defines the pagination in the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+// QuerySyncValidatorRequest is response type for the Query/SyncValidator RPC method
+message QuerySyncValidatorRequest {
+  // validator_addr defines the validator address to query for.
+  string validator_addr = 1;
+}
+
+// QuerySyncValidatorResponse is response type for the Query/SyncValidator RPC method
+message QuerySyncValidatorResponse {
+  // validator defines the the validator info.
+  tendermint.abci.Validator validator = 1 [(gogoproto.nullable) = false];
+}
+
+
