@@ -10,6 +10,7 @@ message ValidatorUpdatesPacketData {
   repeated tendermint.abci.ValidatorUpdate validator_updates = 2;  
 }
 
-message Sync {
+message SyncEntry {
   string channel_id = 1;
+  string port_id = 2;
 }

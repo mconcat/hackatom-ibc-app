@@ -1,7 +1,9 @@
 package types
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
+  abci "github.com/tendermint/tendermint/abci/types"
+
+  sdk "github.com/cosmos/cosmos-sdk/types"
 	capabilitytypes "github.com/cosmos/cosmos-sdk/x/capability/types"
 	connectiontypes "github.com/cosmos/cosmos-sdk/x/ibc/core/03-connection/types"
 	channeltypes "github.com/cosmos/cosmos-sdk/x/ibc/core/04-channel/types"
@@ -39,6 +41,13 @@ type ValidatorSet interface {
 
 	// MaxValidators returns the maximum amount of bonded validators
 	MaxValidators(sdk.Context) uint32
+}
+
+type ValidatorSetProvider interface {
+  GetValidators(version int64) ([]abci.Validator, error)
+  LatestValidators() ([]abci.Validator, error)
+  GetValidatorSetUpdates(versionA, versionB int64) ([]abci.Validator, error)
+  LatestVersion() int64
 }
 
 // ChannelKeeper defines the expected IBC channel keeper

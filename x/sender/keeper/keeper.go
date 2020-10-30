@@ -18,7 +18,7 @@ type (
 		storeKey sdk.StoreKey
 		memKey   sdk.StoreKey
 
-		valset types.ValidatorSet
+		defaultProvider types.ValidatorSetProvider
 
 		channelKeeper types.ChannelKeeper
 		portKeeper    types.PortKeeper
