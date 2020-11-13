@@ -45,8 +45,7 @@ type ValidatorSet interface {
 
 type ValidatorSetProvider interface {
   GetValidators(version int64) ([]abci.Validator, error)
-  LatestValidators() ([]abci.Validator, error)
-  GetValidatorSetUpdates(versionA, versionB int64) ([]abci.Validator, error)
+  LatestValidators() ([]abci.Validator, error) // GetValidators(LatestVersion())
   LatestVersion() int64
 }
 

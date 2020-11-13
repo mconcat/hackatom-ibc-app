@@ -20,7 +20,7 @@ func (k Keeper) GetSyncs(ctx sdk.Context) (syncs []types.Sync) {
 	return
 }
 
-func (k Keeper) RegisterSync(ctx sdk.Context, sync types.Sync) error {
+func (k Keeper) SetSync(ctx sdk.Context, sync types.Sync) error {
 	store := ctx.KVStore(k.storeKey)
 	if store.Has(types.NewSyncKey(sync.ChannelId)) {
 		return types.ErrSyncAlreadyExists
@@ -46,15 +46,6 @@ func (k Keeper) IterateSyncEntry(
   return nil
 }
 
-func (k Keeper) GetProviderFromSyncEntry(ctx sdk.Context, sync types.SyncEntry) (types.ValidatorSetProvider, error) {
-  // TODO: retrieve provider from syncentry using dynamic capability
-
-  return k.defaultValidatorSetProvider
-}
-
-func (k Keeper) CheckUpdateNeeded(ctx sdk.Context, sync types.SyncEntry) bool {
-  // TODO: check voting power difference threshold
-  // TODO: check block height difference threshold
-
-  return true
+func (k Keeper) UpdateHeartbeat(ctx sdk.Context, entry types.SyncEntry) error {
+	
 }
