@@ -20,7 +20,7 @@ const (
 var (
 	// SyncsKey defines the key to store all the synchronizations
 	SyncEntriesKey = []byte{0x01}
-	
+
 	// ValidatorSetsKey defines the key to store validator set at specific height
 	ValidatorSetsKey = []byte{0x02}
 )

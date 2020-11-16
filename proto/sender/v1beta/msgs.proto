@@ -1,13 +1,16 @@
 syntax = 'proto3';
 package hackatomibcapp.sender.v1beta1;
 
-import "tendermint/abci/types.proto";
-
 option go_package = "github.com/mconcat/hackatom-ibc-app/x/sender/types";
 
-message MsgRegisterSync {
-  string channel_id = 1;
-  string port_id = 2;
-  string sender = 3;
+message MsgRegisterEntry {
+  string entry_id = 1;
+  string channel_id = 2;
+  string port_id = 3;
+  string validator_set_provider = 4;
+  string sender = 5;
 }
 
+message MsgSyncEntry {
+  string entry_id = 1;
+}

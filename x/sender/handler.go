@@ -15,18 +15,32 @@ func NewHandler(k keeper.Keeper) sdk.Handler {
 		ctx = ctx.WithEventManager(sdk.NewEventManager())
 
 		switch msg := msg.(type) {
-		case *types.MsgRegisterSync:
-			return handleMsgRegisterSync(ctx, k, msg)
-		default:
+		case *types.MsgRegisterEntry:
+			return handleMsgRegisterEntry(ctx, k, msg)
+    case *types.MsgSyncEntry:
+      return handleMsgSyncEntry(ctx, k, msg)
+    default:
 			errMsg := fmt.Sprintf("unrecognized %s message type: %T", types.ModuleName, msg)
 			return nil, sdkerrors.Wrap(sdkerrors.ErrUnknownRequest, errMsg)
 		}
 	}
 }
 
-func handleMsgRegisterSync(ctx sdk.Context, k keeper.Keeper, msg *types.MsgRegisterSync) (*sdk.Result, error) {
-	if err := k.RegisterSync(ctx, types.Sync{msg.ChannelId}); err != nil {
+func handleMsgRegisterEntry(ctx sdk.Context, k keeper.Keeper, msg *types.MsgRegisterEntry) (*sdk.Result, error) {
+	if err := k.RegisterEntry(ctx, types.Entry{
+    msg.EntryId,
+    msg.ChannelId,
+    msg.PortId,
+    msg.ValidatorSetProvider,
+  }); err != nil {
 		return nil, err
 	}
 	return &sdk.Result{}, nil
+}
+
+func handleMsgSyncEntry(ctx sdk.Context, k keeper.Keeper, msg *types.MsgSyncEntry) (*sdk.Result, error) {
+  if err := k.SyncEntry(ctx, msg.EntryId); err != nil {
+    return nil, err
+  }
+  return &sdk.Result{}, nil
 }

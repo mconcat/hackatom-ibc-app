@@ -1,18 +1,10 @@
 syntax = 'proto3';
 package hackatomibcapp.sender.v1beta1;
 
-import "cosmos/capability/capability.proto";
-import "tendermint/abci/types.proto";
-
 option go_package = "github.com/mconcat/hackatom-ibc-app/x/sender/types";
 
-message PacketDataValidatorSet {
-  bytes validators_commit = 1;
-  repeated tendermint.abci.ValidatorUpdate validator_updates = 2;  
-}
-
 message ValidatorSetProviderStaking {
-  cosmos.capability.Capability capability = 1;
+  string provider_id = 1;
 }
 
 message ValidatorSetProvider {
@@ -21,9 +13,11 @@ message ValidatorSetProvider {
   }
 }
 
-message SyncEntry {
-  string channel_id = 1;
-  string port_id = 2;
+message Entry {
+  string entry_id = 1;
+  string channel_id = 2;
+  string port_id = 3;
 
-  validatorSetProvider provider = 3; 
+  ValidatorSetProvider validator_set_provider = 4;
+  // EvidenceConsumer evidence_consumer = 5;
 }

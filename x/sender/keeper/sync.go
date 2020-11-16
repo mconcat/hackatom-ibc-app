@@ -6,38 +6,38 @@ import (
 	"github.com/mconcat/hackatom-ibc-app/x/sender/types"
 )
 
-func (k Keeper) GetSyncs(ctx sdk.Context) (syncs []types.Sync) {
+func (k Keeper) GetEntrys(ctx sdk.Context) (syncs []types.Entry) {
 	store := ctx.KVStore(k.storeKey)
 
-	iter := sdk.KVStorePrefixIterator(store, types.SyncsKey)
+	iter := sdk.KVStorePrefixIterator(store, types.EntrysKey)
 	defer iter.Close()
 
 	for ; iter.Valid(); iter.Next() {
-		sync := k.MustUnmarshalSync(iter.Value())
+		sync := k.MustUnmarshalEntry(iter.Value())
 		syncs = append(syncs, sync)
 	}
 
 	return
 }
 
-func (k Keeper) SetSync(ctx sdk.Context, sync types.Sync) error {
+func (k Keeper) SetEntry(ctx sdk.Context, sync types.Entry) error {
 	store := ctx.KVStore(k.storeKey)
-	if store.Has(types.NewSyncKey(sync.ChannelId)) {
-		return types.ErrSyncAlreadyExists
+	if store.Has(types.NewEntryKey(sync.ChannelId)) {
+		return types.ErrEntryAlreadyExists
 	}
-	store.Set(types.NewSyncKey(sync.ChannelId), k.MustMarshalSync(sync))
+	store.Set(types.NewEntryKey(sync.ChannelId), k.MustMarshalEntry(sync))
 	return nil
 }
 
-func (k Keeper) IterateSyncEntry(
+func (k Keeper) IterateEntryEntry(
   ctx sdk.Context,
-  fn func(types.SyncEntry) error,
+  fn func(types.EntryEntry) error,
 ) error {
   store := ctx.KVStore(k.storeKey)
-  iter := sdk.KVStorePrefixIterator(store, types.SyncsKey)
+  iter := sdk.KVStorePrefixIterator(store, types.EntrysKey)
   defer iter.Close()
   for ; iter.Valid(); iter.Next() {
-    entry := k.MustUnmarshalSyncEntry(iter.Value())
+    entry := k.MustUnmarshalEntryEntry(iter.Value())
     err := fn(entry)
     if err != nil {
       return err
@@ -46,6 +46,6 @@ func (k Keeper) IterateSyncEntry(
   return nil
 }
 
-func (k Keeper) UpdateHeartbeat(ctx sdk.Context, entry types.SyncEntry) error {
-	
+func (k Keeper) UpdateHeartbeat(ctx sdk.Context, entry types.EntryEntry) error {
+
 }
